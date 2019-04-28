@@ -1,0 +1,80 @@
+from tkinter import *
+from tkinter import ttk
+
+#definition to generate prime number
+def calculate(event):
+    min = float(minEntry.get())
+    max = float(maxEntry.get())
+
+    if max > 10000000:
+        prime = "Please choose smaller maximum"
+
+    else:
+
+        import random
+        a = random.randint(min,max)
+        a = int(a)
+    
+        b = 2
+        b = int (b)
+        x = float(a/b).is_integer()
+    
+        while a/2 > b-1:
+            while x is True:
+                import random
+                a = random.randint(min,max)
+                a = int(a)
+                b = 2
+                b = int (b)
+                x = float(a/b).is_integer()
+    
+            if x is False and b == 2:
+                b = b+1
+                b = int (b)
+                x = float(a/b).is_integer()
+    
+            if x is False and b != 2:
+                b = b+2
+                b = int (b)
+                x = float(a/b).is_integer()
+
+        prime = a
+
+    calculateEntry.delete(0, "end")
+    calculateEntry.insert(0, prime)
+
+
+#the main program
+root = Tk()
+
+#give the app a title
+root.wm_title("Random Prime Number Generator")
+
+#min label
+Label(root, text ="Minimum:").grid(row = 0, sticky = W)
+
+#min entry
+minEntry = (Entry(root))
+minEntry.grid(row = 0, column = 1)
+
+#max label
+Label(root, text ="Maximum:").grid(row=1, sticky = W)
+
+#max entry
+maxEntry = (Entry(root))
+maxEntry.grid(row = 1, column = 1)
+
+#calculate button
+calculateButton = Button(root, text = "Generate")
+calculateButton.bind("<Button-1>", calculate)
+calculateButton.grid(row = 2, column = 1, columnspan = 1)
+
+#prime number label
+Label(root, text ="Prime Number:").grid(row = 3, sticky = W)
+
+#prime number entry
+calculateEntry = Entry(root)
+calculateEntry.grid(row = 3, column = 1)
+
+root.mainloop()
+
