@@ -1,0 +1,55 @@
+#input USD
+print("Welcome. You may use this machine to exchange US currency for Canadian currency.")
+USD = input("How much money (in USD) would you like to exchange? ")
+
+#USD to CAD Conversion
+USD = float(USD)
+USD = round(USD,2)
+CAD = USD*1.32
+CAD = round(CAD,2)
+print("Amount in CAD: {}".format(CAD))
+
+#hundreds
+hundreds = divmod(CAD,100)
+print("Hundreds (CAD): {}".format(int(hundreds[0])))
+
+#fifties
+fifties = divmod(hundreds[1],50)
+print("Fifties (CAD): {}".format(int(fifties[0])))
+
+#twenties
+twenties = divmod(fifties[1],20)
+print("Twenties (CAD): {}".format(int(twenties[0])))
+
+#tens
+tens = divmod(twenties[1],10)
+print("Tens (CAD): {}".format(int(tens[0])))
+
+#fives
+fives = divmod(tens[1],5)
+print("Fives (CAD): {}".format(int(fives[0])))
+
+#toonies
+toonies = divmod(fives[1],2)
+print("Toonies (CAD): {}".format(int(toonies[0])))
+
+#loonies
+loonies = divmod(toonies[1],1)
+print("Loonies (CAD): {}".format(int(loonies[0])))
+
+#quarters
+quarters = divmod(loonies[1],.25)
+print("Quarters (CAD): {}".format(int(quarters[0])))
+
+#dimes
+dimes = divmod(quarters[1],.10)
+print("Dimes (CAD): {}".format(int(dimes[0])))
+
+#nickels
+nickels = divmod(dimes[1],.05)
+print("Nickels (CAD): {}".format(int(nickels[0])))
+
+#pennies
+pennies = divmod(nickels[1],.01)
+print("Pennies (CAD): {}".format(int(pennies[0])))
+
