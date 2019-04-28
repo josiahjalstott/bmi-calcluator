@@ -1,0 +1,47 @@
+#ask for item price
+price = float(input("Price of the item: "))
+
+#ask for tender
+tender = float(input("Cash tendered: "))
+
+#calculate the change
+change = tender - price
+change=round(change,2)
+print("Change: {}".format(change))
+
+#hundreds
+hundreds = divmod(change,100)
+print("Hundreds: {}".format(int(hundreds[0])))
+
+#twenties
+twenties = divmod(hundreds[1],20)
+print("Twenties: {}".format(int(twenties[0])))
+
+#tens
+tens = divmod(twenties[1],10)
+print("Tens: {}".format(int(tens[0])))
+
+#fives
+fives = divmod(tens[1],5)
+print("Fives: {}".format(int(fives[0])))
+
+#ones
+ones = divmod(fives[1],1)
+print("Ones: {}".format(int(ones[0])))
+
+#quarters
+quarters = divmod(ones[1],.25)
+print("Quarters: {}".format(int(quarters[0])))
+
+#dimes
+dimes = divmod(quarters[1],.10)
+print("Dimes: {}".format(int(dimes[0])))
+
+#nickles
+nickles = divmod(dimes[1],.05)
+print("Nickles: {}".format(int(nickles[0])))
+
+#pennies
+pennies = divmod(nickles[1],.01)
+print("Pennies: {}".format(int(pennies[0])))
+
