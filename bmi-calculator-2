@@ -1,0 +1,61 @@
+from tkinter import *
+from tkinter import ttk
+
+#definition to calculate BMI when weight and height are given
+def calculate(event):
+    height = float(heightEntry.get())
+    weight = float(weightEntry.get())
+
+    calculate = (weight * 703) / (height * height)
+    calculate = float("{0:.2f}".format(calculate))
+    calculateEntry.delete(0, "end")
+    calculateEntry.insert(0, calculate)
+
+#for each BMI in given span
+    if calculate < 18.5:
+        Label(root, text ="Underweight").grid(row = 4, column = 1, sticky = W)
+    if 18.51 <= calculate < 24.9:
+        Label(root, text ="Normal").grid(row = 4, column = 1, sticky = W)
+    if 25 <= calculate < 29.9:
+        Label(root, text ="Overweight").grid(row = 4, column = 1, sticky = W)
+    if calculate > 30:
+        Label(root, text ="Obese").grid(row = 4, column = 1, sticky = W)
+
+#the main program
+root = Tk()
+
+#give the app a title
+root.wm_title("BMI Calculator")
+
+#height label
+Label(root, text ="Height (inches):").grid(row = 0, sticky = W)
+
+#height entry
+heightEntry = (Entry(root))
+heightEntry.grid(row = 0, column = 1)
+
+#weight label
+Label(root, text ="Weight (pounds):").grid(row=1, sticky = W)
+
+#weight entry
+weightEntry = (Entry(root))
+weightEntry.grid(row = 1, column = 1)
+
+#calculate button
+calculateButton = Button(root, text = "Calculate")
+calculateButton.bind("<Button-1>", calculate)
+calculateButton.grid(row = 2, column = 1, columnspan = 1)
+
+#BMI label
+Label(root, text ="Body Mass Index:").grid(row = 3, sticky = W)
+
+#BMI entry
+calculateEntry = Entry(root)
+calculateEntry.grid(row = 3, column = 1)
+
+#status label
+Label(root, text ="Status:").grid(row = 4, sticky = W)
+
+
+
+root.mainloop()
